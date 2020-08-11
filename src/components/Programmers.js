@@ -11,7 +11,8 @@ We can only feature one awesome programmer at a time.
 Find comments below to help you along.
 */
 
-import React from 'react';
+import React, {useState} from 'react';
+import { elementType, element } from 'prop-types';
 
 // Use this variable ONLY to initialize a slice of state!
 // There is something in the JSX right now breaking this rule.
@@ -24,15 +25,22 @@ const listOfAwesome = [
   { id: '6', name: 'Carol Shaw' },
 ];
 
+
 export default function Programmers() {
   // We'll have to use the state hook twice, as we need two slices of state.
   // The programmers on the one hand, and the id of the featured programmer on the other.
+
+  const [listofNames, setListofNames] = useState(listOfAwesome.forEach(element => {
+    element.name
+  }))
+  const [id, setId]  = useState(listOfAwesome)
 
   const getNameOfFeatured = () => {
     // This is not an event handler but a helper function. See its usage below.
     // It's going to need information from both slices of state!
     // Using the currently celebrated id, find inside the programmers slice of state
     // the _name_ of the currently celebrated programmer, and return it.
+
   };
 
   const style = {
@@ -61,7 +69,7 @@ export default function Programmers() {
         // Pseudo-code: if the currently featured id is truthy render div 1, otherwise render div 2. Fix!
         false
           ? <div style={style}>🎉 Let&apos;s celebrate {getNameOfFeatured()}! 🥳</div>
-          : <div style={style}>Pick an awesome programmer</div>
+      : <div style={style}>Pick an awesome programmer</div>
       }
     </div>
   );
